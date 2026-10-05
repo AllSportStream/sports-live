@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARENA X — Live Sports</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#05070c;
+    color:white;
+}
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:
+      linear-gradient(90deg,rgba(3,5,10,.96) 0%,rgba(3,5,10,.72) 45%,rgba(3,5,10,.28) 100%),
+      radial-gradient(circle at 75% 35%,#243d68 0%,#0a1222 38%,#05070c 75%);
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(135deg,transparent 40%,rgba(255,255,255,.04) 41%,transparent 42%),
+      linear-gradient(45deg,transparent 55%,rgba(255,255,255,.03) 56%,transparent 57%);
+    opacity:.7;
+}
+
+.topbar{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    z-index:10;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:24px 7%;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:3px;
+}
+
+.logo span{
+    color:#ff304f;
+}
+
+.live{
+    background:#ff304f;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:bold;
+    box-shadow:0 0 25px rgba(255,48,79,.4);
+}
+
+.content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:130px 7% 70px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    padding:9px 15px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.dot{
+    width:8px;
+    height:8px;
+    background:#ff304f;
+    border-radius:50%;
+    box-shadow:0 0 12px #ff304f;
+}
+
+h1{
+    max-width:780px;
+    font-size:clamp(48px,7vw,92px);
+    line-height:.95;
+    text-transform:uppercase;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+h1 span{
+    color:#ff304f;
+}
+
+.subtitle{
+    max-width:600px;
+    color:#b9c0cc;
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+    cursor:pointer;
+    padding:16px 27px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:bold;
+    transition:.25s;
+}
+
+.primary{
+    background:#ff304f;
+    color:white;
+    box-shadow:0 12px 35px rgba(255,48,79,.3);
+}
+
+.primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 16px 40px rgba(255,48,79,.45);
+}
+
+.secondary{
+    background:rgba(255,255,255,.08);
+    color:white;
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.secondary:hover{
+    background:rgba(255,255,255,.15);
+}
+
+.stats{
+    display:flex;
+    gap:45px;
+    margin-top:55px;
+}
+
+.stat strong{
+    display:block;
+    font-size:25px;
+}
+
+.stat small{
+    color:#858e9d;
+}
+
+.glow{
+    position:absolute;
+    width:500px;
+    height:500px;
+    right:-150px;
+    top:20%;
+    border-radius:50%;
+    background:#ff304f;
+    filter:blur(180px);
+    opacity:.12;
+}
+
+.card{
+    position:absolute;
+    right:7%;
+    bottom:12%;
+    z-index:3;
+    width:300px;
+    padding:25px;
+    background:rgba(12,16,25,.72);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:20px;
+    box-shadow:0 30px 80px rgba(0,0,0,.45);
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.card h3{
+    font-size:20px;
+}
+
+.card p{
+    color:#929aaa;
+    font-size:13px;
+    margin-top:5px;
+}
+
+.time{
+    color:#ff304f;
+    font-weight:bold;
+}
+
+.match{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.team{
+    text-align:center;
+}
+
+.team-icon{
+    width:45px;
+    height:45px;
+    display:grid;
+    place-items:center;
+    margin:auto;
+    border-radius:50%;
+    background:#182233;
+    font-weight:900;
+}
+
+.vs{
+    color:#707887;
+    font-size:12px;
+}
+
+.section{
+    padding:90px 7%;
+    background:#070a11;
+}
+
+.section-title{
+    font-size:38px;
+    margin-bottom:35px;
+}
+
+.events{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.event{
+    padding:25px;
+    min-height:190px;
+    border-radius:18px;
+    background:linear-gradient(145deg,#111827,#090d15);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.event .number{
+    color:#ff304f;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.event h3{
+    font-size:24px;
+    margin:25px 0 10px;
+}
+
+.event p{
+    color:#8992a2;
+    line-height:1.5;
+}
+
+footer{
+    padding:30px 7%;
+    background:#040509;
+    color:#697181;
+    text-align:center;
+    font-size:13px;
+}
+
+@media(max-width:900px){
+    .card{
+        display:none;
+    }
+
+    .events{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+    .topbar{
+        padding:20px;
+    }
+
+    .content{
+        padding:120px 20px 60px;
+    }
+
+    h1{
+        font-size:55px;
+    }
+
+    .subtitle{
+        font-size:15px;
+    }
+
+    .stats{
+        gap:25px;
+    }
+
+    .stat strong{
+        font-size:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="glow"></div>
+
+<header class="topbar">
+    <div class="logo">ARENA<span>X</span></div>
+    <div class="live">● LIVE EVENT</div>
+</header>
+
+<div class="content">
+
+    <div class="badge">
+        <span class="dot"></span>
+        INTERNATIONAL CHAMPIONSHIP
+    </div>
+
+    <h1>
+        THE NEXT<br>
+        <span>GENERATION</span><br>
+        OF SPORT
+    </h1>
+
+    <p class="subtitle">
+        Experience the world's most intense fictional championship,
+        featuring elite competitors, incredible moments and
+        non-stop action from the ARENA X stage.
+    </p>
+
+    <div class="buttons">
+        <button class="btn primary" onclick="watchNow()">
+            ▶ WATCH LIVE
+        </button>
+
+        <button class="btn secondary" onclick="scrollEvents()">
+            VIEW EVENTS
+        </button>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <strong>24+</strong>
+            <small>Elite Athletes</small>
+        </div>
+
+        <div class="stat">
+            <strong>08</strong>
+            <small>Live Events</small>
+        </div>
+
+        <div class="stat">
+            <strong>01</strong>
+            <small>Champion</small>
+        </div>
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-top">
+        <div>
+            <h3>LIVE MATCH</h3>
+            <p>Championship Arena</p>
+        </div>
+
+        <div class="time">LIVE</div>
+    </div>
+
+    <div class="match">
+
+        <div class="team">
+            <div class="team-icon">A</div>
+            <small>APEX</small>
+        </div>
+
+        <div class="vs">VS</div>
+
+        <div class="team">
+            <div class="team-icon">V</div>
+            <small>VORTEX</small>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<section class="section" id="events">
+
+    <h2 class="section-title">Featured Events</h2>
+
+    <div class="events">
+
+        <div class="event">
+            <div class="number">EVENT 01</div>
+            <h3>Opening Clash</h3>
+            <p>
+                The championship begins with a high-energy
+                opening competition.
+            </p>
+        </div>
+
+        <div class="event">
+            <div class="number">EVENT 02</div>
+            <h3>Elite Challenge</h3>
+            <p>
+                Top fictional athletes compete for their place
+                in the final.
+            </p>
+        </div>
+
+        <div class="event">
+            <div class="number">EVENT 03</div>
+            <h3>Grand Final</h3>
+            <p>
+                One final battle. One champion. One unforgettable
+                moment.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 ARENA X — Fictional Sports Championship
+</footer>
+
+<script>
+function watchNow(){
+    alert("Live stream will open here.");
+}
+
+function scrollEvents(){
+    document.getElementById("events").scrollIntoView({
+        behavior:"smooth"
+    });
+}
+</script>
+
+</body>
+</html>
