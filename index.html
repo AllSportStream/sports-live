@@ -1,457 +1,110 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07111d">
+<meta name="description" content="IRONMAN World Championships 2026 event information and viewing links.">
 <title>ALL SPORTS LIVE | IRONMAN WORLD CHAMPIONSHIPS 2026</title>
-
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  font-family:Arial,sans-serif;
-  background:#050505;
-  color:#fff;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-.hero{
-  min-height:100vh;
-  background:
-    linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.35)),
-    url("hero.jpg") center/cover;
-  display:flex;
-  align-items:center;
-}
-
-nav{
-  position:absolute;
-  top:0;
-  width:100%;
-  padding:22px 6%;
-  display:flex;
-  justify-content:space-between;
-  z-index:5;
-  border-bottom:1px solid #333;
-}
-
-.logo{
-  font-weight:900;
-  letter-spacing:2px;
-}
-
-.logo span,
-h1 span{
-  color:#ff4b23;
-}
-
-.links{
-  display:flex;
-  gap:20px;
-  align-items:center;
-  font-size:12px;
-  font-weight:bold;
-}
-
-.content{
-  max-width:1100px;
-  margin:auto;
-  padding:140px 6% 70px;
-}
-
-.badge{
-  display:inline-block;
-  border:1px solid #777;
-  padding:10px 16px;
-  border-radius:30px;
-  font-size:11px;
-  letter-spacing:2px;
-}
-
-h1{
-  font-size:clamp(48px,8vw,95px);
-  line-height:.9;
-  margin-top:25px;
-  letter-spacing:-4px;
-}
-
-.sub{
-  max-width:650px;
-  color:#ddd;
-  font-size:17px;
-  line-height:1.7;
-  margin-top:25px;
-}
-
-.date{
-  font-weight:bold;
-  letter-spacing:2px;
-  margin-top:20px;
-}
-
-.buttons{
-  display:flex;
-  gap:12px;
-  margin-top:30px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  display:inline-block;
-  padding:14px 20px;
-  background:#ff4821;
-  border-radius:4px;
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:1px;
-  transition:.25s;
-}
-
-.btn:hover{
-  transform:scale(1.05);
-  background:#ff5c38;
-}
-
-.watch-live{
-  background:#e50914;
-  box-shadow:0 0 20px rgba(229,9,20,.45);
-  font-size:14px;
-}
-
-.watch-live:hover{
-  background:#ff1a1a;
-  box-shadow:0 0 28px rgba(255,26,26,.65);
-}
-
-.alt{
-  background:#222;
-  border:1px solid #777;
-}
-
-.section{
-  max-width:1200px;
-  margin:auto;
-  padding:90px 6%;
-}
-
-.label{
-  color:#ff4b23;
-  font-size:10px;
-  font-weight:bold;
-  letter-spacing:3px;
-  margin-bottom:15px;
-}
-
-h2{
-  font-size:clamp(38px,5vw,65px);
-  line-height:.95;
-}
-
-.intro{
-  color:#999;
-  line-height:1.8;
-  margin-top:20px;
-  max-width:700px;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-top:45px;
-}
-
-.card{
-  padding:30px;
-  min-height:210px;
-  background:#111;
-  border:1px solid #333;
-}
-
-.card b{
-  color:#ff4b23;
-  font-size:10px;
-}
-
-.card h3{
-  font-size:30px;
-  margin-top:45px;
-}
-
-.card p{
-  color:#888;
-  margin-top:10px;
-  line-height:1.6;
-}
-
-.live{
-  margin-top:45px;
-  padding:40px;
-  border:1px solid #333;
-  background:#151515;
-}
-
-.live h3{
-  font-size:clamp(30px,4vw,55px);
-  margin:15px 0;
-}
-
-.meta{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin:20px 0;
-}
-
-.meta span{
-  padding:10px 14px;
-  background:#222;
-  color:#ccc;
-  font-size:12px;
-}
-
-footer{
-  padding:30px 6%;
-  border-top:1px solid #222;
-  color:#777;
-  font-size:11px;
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-}
-
-@media(max-width:800px){
-
-  .links a{
-    display:none;
-  }
-
-  .cards{
-    grid-template-columns:1fr;
-  }
-
-  .count{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  h1{
-    letter-spacing:-2px;
-  }
-}
+:root{--red:#ff321f;--dark:#050a11;--muted:#bac4ce}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--dark);color:#fff}
+a{color:inherit;text-decoration:none}
+nav{position:absolute;top:0;left:0;width:100%;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 6%;background:rgba(3,9,16,.78);border-bottom:1px solid #ffffff26;backdrop-filter:blur(8px)}
+.logo{font-size:clamp(15px,2vw,22px);font-weight:900;letter-spacing:2px;white-space:nowrap}.logo span,.accent{color:var(--red)}
+.links{display:flex;gap:24px;font-size:12px;font-weight:800;letter-spacing:.7px}.links a:hover{color:var(--red)}
+.hero{min-height:100svh;min-height:700px;position:relative;display:flex;align-items:center;overflow:hidden;background:#101a25 url("https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=2200&q=85") center/cover no-repeat}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,6,12,.96) 0%,rgba(2,6,12,.78) 48%,rgba(2,6,12,.2) 100%),linear-gradient(0deg,rgba(2,6,12,.8),transparent 55%)}
+.content{position:relative;width:min(1200px,100%);margin:auto;padding:150px 6% 85px}
+.badge{display:inline-flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid #ffffff80;border-radius:40px;background:#0005;font-size:11px;font-weight:800;letter-spacing:1.2px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#ff2538;box-shadow:0 0 12px #ff2538;flex:none}
+h1{max-width:900px;margin-top:25px;font-size:clamp(43px,7.6vw,94px);font-weight:950;line-height:.94;letter-spacing:-3px}
+.sub{max-width:650px;margin-top:23px;color:#e0e5ea;font-size:17px;line-height:1.75}
+.date{margin-top:18px;font-size:13px;font-weight:900;letter-spacing:1.6px;line-height:1.7}
+.buttons{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:14px 22px;border:1px solid var(--red);border-radius:5px;background:var(--red);font-size:12px;font-weight:900;letter-spacing:1px;transition:.2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.13);box-shadow:0 8px 24px #ff321f55}
+.watch{background:#e50914;box-shadow:0 0 22px #e509144d;font-size:14px}.secondary{background:#121820d9;border-color:#ffffff80}
+.section{max-width:1200px;margin:auto;padding:82px 6%}
+.label{margin-bottom:15px;color:var(--red);font-size:11px;font-weight:900;letter-spacing:3px}
+h2{font-size:clamp(35px,5vw,62px);line-height:1;letter-spacing:-1.5px}
+.intro{max-width:720px;margin-top:20px;color:#b4bec8;line-height:1.8}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:38px}
+.card{min-height:190px;padding:27px;border:1px solid #2a3540;border-radius:8px;background:linear-gradient(145deg,#151f2a,#0b1118)}
+.card b{color:var(--red);font-size:11px;letter-spacing:2px}.card h3{margin-top:30px;font-size:clamp(23px,3vw,34px)}.card p{margin-top:10px;color:#b4bec8;line-height:1.6}
+.races{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:25px}
+.race{padding:22px 10px;text-align:center;border:1px solid #2a3540;border-radius:8px;background:#0d151e}.race .emoji{font-size:28px}.race h3{margin-top:10px}.race p{margin-top:6px;color:#b4bec8;font-size:13px}
+.live{margin-top:40px;padding:clamp(24px,5vw,42px);border:1px solid #343943;border-radius:10px;background:radial-gradient(ellipse at top right,#451216 0%,#171419 42%,#0b121a 100%)}
+.live h3{margin:12px 0;font-size:clamp(30px,4vw,52px)}.meta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}.meta span{padding:10px 13px;border:1px solid #333e49;border-radius:4px;background:#111a23;color:#d9e0e6;font-size:12px}
+.disclaimer{max-width:850px;margin-top:20px;color:#929eaa;font-size:12px;line-height:1.7}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:15px;padding:27px 6%;border-top:1px solid #26303a;color:#8994a0;font-size:11px}
+@media(max-width:760px){nav{padding:17px 5%}.links{gap:13px;font-size:10px}.hero{min-height:760px;background-position:58% center}.hero:before{background:linear-gradient(90deg,#02060df0,#02060d99),linear-gradient(0deg,#02060dcc,transparent 60%)}.content{padding:130px 5% 60px}h1{font-size:clamp(42px,10.5vw,68px);letter-spacing:-1.8px}.sub{font-size:15px}.date{font-size:11px;letter-spacing:1px}.section{padding:62px 5%}.cards{grid-template-columns:1fr}.card{min-height:150px}.card h3{margin-top:22px}.race{padding:17px 6px}.race h3{font-size:15px}.race p{font-size:11px}}
+@media(max-width:390px){.logo{font-size:13px;letter-spacing:1px}.links{gap:9px;font-size:9px}.badge{font-size:9px;letter-spacing:.5px;padding:9px 10px}.btn{width:100%}}
 </style>
 </head>
-
 <body>
-
 <nav>
-  <div class="logo">
-    ALL SPORTS <span>LIVE</span>
-  </div>
-
-  <div class="links">
-    <a href="#event">EVENT</a>
-    <a href="#race">RACE</a>
-    <a href="#live">LIVE</a>
-  </div>
+  <a class="logo" href="#home">ALL SPORTS <span>LIVE</span></a>
+  <div class="links"><a href="#event">EVENT</a><a href="#race">RACE</a><a href="#live">LIVE</a></div>
 </nav>
 
-
-<section class="hero">
-
+<main>
+<section class="hero" id="home">
   <div class="content">
-
-    <div class="badge">
-      🔴 ALL SPORTS LIVE • WORLD CHAMPIONSHIPS 2026
-    </div>
-
-    <h1>
-      IRONMAN <span>WORLD CHAMPIONSHIPS 2026</span>
-    </h1>
-
-    <p class="sub">
-      The world's ultimate endurance challenge returns to
-      Kailua-Kona, Hawaii.
-    </p>
-
-    <div class="date">
-      KAILUA-KONA, HAWAII • OCTOBER 10, 2026
-    </div>
-
-
+    <div class="badge"><span class="dot"></span> ALL SPORTS LIVE <span>•</span> WORLD CHAMPIONSHIPS 2026</div>
+    <h1>IRONMAN <span class="accent">WORLD CHAMPIONSHIPS 2026</span></h1>
+    <p class="sub">The world's ultimate endurance challenge returns to Kailua-Kona, Hawaii. Explore event details and use the viewing link for more information.</p>
+    <p class="date">KAILUA-KONA, HAWAII <span>•</span> OCTOBER 10, 2026</p>
     <div class="buttons">
-
-      <!-- WATCH LIVE BUTTON -->
-      <a
-        class="btn watch-live"
-        href="PASTE-YOUR-LINK-HERE"
-        target="_blank"
-        rel="noopener noreferrer">
-        🔴 WATCH LIVE
-      </a>
-
-      <!-- EVENT INFO BUTTON -->
-      <a class="btn alt" href="#event">
-        EVENT INFO
-      </a>
-
+      <a class="btn watch" href="https://cjewz.com/af?o=bee287d3b8f334f18bb5260ad2bcc777:0ec14491c130b5da5b9c58511bb97f8b&amp;v=ironman" target="_blank" rel="noopener noreferrer sponsored">🔴 WATCH LIVE <span>→</span></a>
+      <a class="btn secondary" href="#event">EVENT INFO</a>
     </div>
-
   </div>
-
 </section>
-
 
 <section class="section" id="event">
-
-  <div class="label">
-    THE EVENT
-  </div>
-
-  <h2>
-    WORLD'S ULTIMATE<br>
-    ENDURANCE CHALLENGE
-  </h2>
-
-  <p class="intro">
-    Experience the intensity, endurance and excitement of
-    the championship event in Kailua-Kona, Hawaii.
-  </p>
-
-
+  <div class="label">THE EVENT</div>
+  <h2>WORLD'S ULTIMATE<br>ENDURANCE CHALLENGE</h2>
+  <p class="intro">Follow the endurance, preparation and excitement surrounding the championship in Kailua-Kona, Hawaii. Check the event details below and verify viewing availability with the destination website.</p>
   <div class="cards">
-
-    <div class="card">
-      <b>LOCATION</b>
-      <h3>Hawaii</h3>
-      <p>
-        Kailua-Kona, Hawaii
-      </p>
-    </div>
-
-    <div class="card">
-      <b>DATE</b>
-      <h3>OCT 10</h3>
-      <p>
-        October 10, 2026
-      </p>
-    </div>
-
-    <div class="card">
-      <b>EVENT</b>
-      <h3>IRONMAN</h3>
-      <p>
-        World Championships 2026
-      </p>
-    </div>
-
+    <article class="card"><b>LOCATION</b><h3>Kailua-Kona</h3><p>Hawaii, United States</p></article>
+    <article class="card"><b>EVENT DATE</b><h3>OCT 10, 2026</h3><p>Saturday, October 10, 2026</p></article>
+    <article class="card"><b>CHAMPIONSHIP</b><h3>IRONMAN</h3><p>World Championships 2026</p></article>
   </div>
-
-
+  <div class="races" id="race">
+    <article class="race"><div class="emoji" aria-hidden="true">🏊</div><h3>SWIM</h3><p>3.8 km</p></article>
+    <article class="race"><div class="emoji" aria-hidden="true">🚴</div><h3>BIKE</h3><p>180 km</p></article>
+    <article class="race"><div class="emoji" aria-hidden="true">🏃</div><h3>RUN</h3><p>42.2 km</p></article>
+  </div>
   <div class="live" id="live">
-
-    <div class="label">
-      LIVE COVERAGE
-    </div>
-
-    <h3>
-      READY TO WATCH?
-    </h3>
-
-    <p class="intro">
-      Click the button below to continue.
-    </p>
-
-    <div class="buttons">
-
-      <a
-        class="btn watch-live"
-        href="PASTE-YOUR-LINK-HERE"
-        target="_blank"
-        rel="noopener noreferrer">
-        🔴 WATCH LIVE
-      </a>
-
-    </div>
-
+    <div class="label"><span class="dot"></span> LIVE COVERAGE</div>
+    <h3>READY TO WATCH?</h3>
+    <p class="intro">Use the button below to continue to the affiliate destination. Streaming availability, regional restrictions and access requirements are set by that website.</p>
+    <div class="meta"><span>📍 Kailua-Kona, Hawaii</span><span>📅 October 10, 2026</span><span>🏁 Triathlon</span></div>
+    <div class="buttons"><a class="btn watch" href="https://cjewz.com/af?o=bee287d3b8f334f18bb5260ad2bcc777:0ec14491c130b5da5b9c58511bb97f8b&amp;v=ironman" target="_blank" rel="noopener noreferrer sponsored">🔴 WATCH LIVE <span>→</span></a></div>
+    <p class="disclaimer">ALL SPORTS LIVE is an independent event-information page and is not the official IRONMAN website or broadcaster. Check the destination website for authorized viewing options and current event updates.</p>
   </div>
-
 </section>
+</main>
 
+<footer><div>© 2026 ALL SPORTS LIVE</div><div>IRONMAN WORLD CHAMPIONSHIPS 2026</div></footer>
 
-<footer>
-
-  <div>
-    © 2026 ALL SPORTS LIVE
-  </div>
-
-  <div>
-    IRONMAN WORLD CHAMPIONSHIPS 2026
-  </div>
-
-</footer>
-
-
-<!-- Histats.com START (async) -->
-
-<script type="text/javascript">
-
+<!-- Histats visitor counter -->
+<script>
 var _Hasync = _Hasync || [];
-
-_Hasync.push([
-  'Histats.start',
-  '1,5056412,4,0,0,0,00010000'
-]);
-
-_Hasync.push([
-  'Histats.fasi',
-  '1'
-]);
-
-_Hasync.push([
-  'Histats.track_hits',
-  ''
-]);
-
-(function(){
-
+_Hasync.push(['Histats.start', '1,5056412,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function () {
   var hs = document.createElement('script');
-
   hs.type = 'text/javascript';
   hs.async = true;
-
-  hs.src = '//s10.histats.com/js15_as.js';
-
-  (
-    document.getElementsByTagName('head')[0] ||
-    document.getElementsByTagName('body')[0]
-  ).appendChild(hs);
-
+  hs.src = 'https://s10.histats.com/js15_as.js';
+  (document.head || document.body).appendChild(hs);
 })();
-
 </script>
-
-<noscript>
-  <a href="/" target="_blank">
-    <img
-      src="//sstatic1.histats.com/0.gif?5056412&101"
-      alt="hit counter"
-      border="0">
-  </a>
-</noscript>
-
-<!-- Histats.com END -->
-
+<noscript><a href="https://www.histats.com/" target="_blank" rel="noopener noreferrer"><img src="https://sstatic1.histats.com/0.gif?5056412&amp;101" alt="Histats visitor counter" style="border:0"></a></noscript>
 </body>
 </html>
-```
-
